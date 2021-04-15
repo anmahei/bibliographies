@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link type="text/css" rel="stylesheet" href="css/style.css" th:href="@{css/style.css}" />
+    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
+    <center>
+<title>Edit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Edit bib</h1>
+	<div>
+	<table>
+	
+		<form th:object="${bib}" th:action="@{editBib}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control" /> 
+		    
+		    <label for="author">Author </label>
+			<input type="text" th:field="*{author}" /> 
+			<div class="alert alert-warning" 
+					th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+					<p>
+			<label for="title">Title</label> 
+			<input type="text" th:field="*{title}" /> 
+			</p>
+			<p>
+			<label for="materialtype">Materialtype</label> 
+			<input type="text" th:field="*{materialtype}" /> 
+			</p>
+			<p>
+				<label for="lang">Language</label> 
+			<input type="text" th:field="*{lang}" /> <div class="alert alert-warning" 
+					th:if="${#fields.hasErrors('lang')}" th:errors="*{lang}"></div>
+			</p>
+			<p>
+			
+			<label for="genrelist">Genre</label>
+			<select id="genreList" th:field=*{genre}>
+				<option th:each="genre: ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+				</option>
+			</select> 
+			<p>
+			<label for="many">Order</label> 
+			<input type="number" th:field="*{many}" /> 
+			</p>
+			</p>
+			<p>
+			</table>
+			<input type="submit" class="btn btn-success" value="Save"></input>
+		</form>
+		</center>
+	</div>
+</body>
+</html>
+

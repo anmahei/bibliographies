@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<center>
+<title>Sierrabibs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<a th:href="@{/logout}">Logout</a>
+	<h1>This is the main page of Sierrabibs</h1>
+	
+		<a th:href="@{/biblist}">Show bibs</a><br><br><br>
+
+	<!-- 'src' works when opening this template directly in the browser -->
+    <!-- 'th:src' will replate 'src' when this template is processed by Thymeleaf Engine -->
+    <img src="/images/oodi.jpg" width="600" height="500" th:src="@{/images/oodi.jpg}" />
+</center>
+
+</body>
+</html>
